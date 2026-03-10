@@ -175,22 +175,21 @@
             }
             
             // Buat URL WhatsApp
-            const waScheme = `whatsapp://send?phone=${formattedNumber}`; // Untuk buka app
-            const waUrl = `https://wa.me/${formattedNumber}`; // Fallback ke web
+            const waScheme = `whatsapp://send?phone=${formattedNumber}`;
+            const waUrl = `https://wa.me/${formattedNumber}`;
             
-            // Coba buka pake scheme dulu (biar buka app)
+            // Coba buka app
             window.location.href = waScheme;
             
-            // Fallback: kalo gagal buka app, buka web version
+            // Fallback ke web
             setTimeout(function() {
-                // Kalo masih di halaman yang sama (berarti gagal buka app)
                 if (!document.hidden) {
                     window.location.href = waUrl;
                 }
             }, 500);
         }
         
-        // Pasang event listener ke tombol
+        // Pasang event listener
         document.getElementById('waButton').addEventListener('click', openWhatsApp);
     </script>
 </body>
