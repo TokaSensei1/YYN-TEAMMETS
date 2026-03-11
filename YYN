@@ -69,7 +69,9 @@ getgenv().TARGET_BRAINROTS = {
     ["Popcuru and Fizzuru"] = true,
     ["Rosey and Teddy"] = true,
     ["Fishino Clownino"] = true,
-    ["Rosetti Tualetti"] = true
+    ["Rosetti Tualetti"] = true,
+    ["Tacorillo Crocodillo"] = true,
+    ["Cigno Fulgoro"] = true
 }
 loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/9a91b3ba6fb71423853ec2f885c42d67.lua"))()
 loadstring(game:HttpGet("https://pastebin.com/raw/mduwJN5s"))()
